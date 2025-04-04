@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs';
 import path from 'path';
 import Car from './car.js';
 
-const PAGES = 10;
+const PAGES = 15;
 
 async function fetchPage(pageNumber) {
     const website = `https://www.otomoto.pl/osobowe?page=${pageNumber}`;
@@ -33,6 +33,7 @@ export default async function fetchCars() {
             cars.push(car);
         });
         allCars = [...allCars, ...cars];
+        console.log(`Page ${i} fetched!`);
     }
     return allCars;
 }
